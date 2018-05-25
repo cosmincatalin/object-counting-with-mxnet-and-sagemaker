@@ -1,11 +1,12 @@
 import base64
 import json
 import logging
+import subprocess
+import sys
 from pickle import load
 
 import mxnet as mx
 import numpy as np
-import pip
 from mxnet import autograd, nd, gluon
 from mxnet.gluon import Trainer
 from mxnet.gluon.loss import L2Loss
@@ -14,7 +15,7 @@ from mxnet.initializer import Xavier
 
 
 def install(package):
-    pip.main(['install', package])
+    subprocess.call([sys.executable, "-m", "pip", "install", package])
 
 
 install("opencv-python")
