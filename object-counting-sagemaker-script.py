@@ -138,7 +138,7 @@ def model_fn(model_dir):
 # noinspection PyUnusedLocal
 def transform_fn(model, input_data, content_type, accept):
     if content_type == "application/png":
-        img = img2arr(input_data)
+        img = nd.array(img2arr(input_data))
         response = model(img).asnumpy().ravel().tolist()
         return json.dumps(response), accept
     elif content_type == "application/json":
